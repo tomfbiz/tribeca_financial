@@ -1,0 +1,91 @@
+.home {
+	.well.top {
+		background: url("/img/tf-logo-bg.gif") no-repeat;
+		background-size:100% 100%;
+	}
+	.legal {
+		h4 {
+			font-size: 1.2em;
+			text-align:center;
+		}
+		font-size: 0.8em;
+		border:solid 1px #ddd;
+		border-radius: 4px;
+		padding:10px 20px;
+		margin-top: 50px;
+	}
+}
+
+footer {
+	margin-top: 10px;
+	padding-top: 10px;
+}
+/* columns of same height styles */
+.row-same-height {
+    display: table;
+    border-spacing: 15px;
+    width: 100%;
+    .well {
+    	height: 100%;
+    }
+}
+.col-xs-height {
+    display: table-cell;
+    float: none !important;
+}
+
+@media (min-width: 768px) {
+    .col-sm-height {
+        display: table-cell;
+        float: none !important;
+    }
+}
+@media (min-width: 992px) {
+    .col-md-height {
+        display: table-cell;
+        float: none !important;
+    }
+}
+@media (min-width: 1200px) {
+    .col-lg-height {
+        display: table-cell;
+        float: none !important;
+    }
+}
+/* firefox fix */
+.img-responsive {
+    width: 100%;
+}
+
+/* vertical alignment styles */
+.col-top {
+    vertical-align:top;
+}
+.col-middle {
+    vertical-align:middle;
+}
+.col-bottom {
+    vertical-align:bottom;
+}
+/* Sticky footer styles
+-------------------------------------------------- */
+body > .container {
+  padding-bottom:30px;
+}
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
