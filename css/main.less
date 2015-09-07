@@ -1,49 +1,35 @@
 @accent-color: #d10032;
 @accent-color-2: #259cb2;
 @accent-color-2-half: #94c5ce;
-.navbar-default .nav.navbar-nav.navbar-right{
-&>li.divider {
-  margin:15px 0 10px 0;
-  border-left: 1.5px @accent-color solid;
-   line-height:1.2;
-   display:none;
-   &.group3 {
-   display: block;
-   position:relative;
-   float:left;
-   }
+.col-sm-height {
+  display: table-cell;
+  float: none !important;
 }
+
+.navbar-default .nav.navbar-nav.navbar-right{
+  &>li.divider {
+    margin:15px 0 10px 0;
+    border-left: 1.5px @accent-color solid;
+    line-height:1.2;
+    display:initial;
+  }
   &>li {
-    text-align: center;
-    width:100%;
+    text-align: initial;
+    width: initial;
     >a {
       color: @accent-color-2;
       line-height:1.3;
-      font-size: 1.5em;
+      font-size: 0.9em;
       br {
-        display:none;
-        &::after {
-          content: "&nbsp;";
-        }
-        }
+        display:initial;
       }
-   &.group3 {
-      display: block;
-      position:relative;
-      float:left;
-      width: initial;
     }
-
   }
-  &>li.group2>a {
-      color: @accent-color-2-half;
-      }
   &>li.group3 {
-    &>a {
-      color: @accent-color;
-      padding: 0 5px;
-      }
-      }
+   &:not(.both) {
+    display: none;
+  }
+}
 }
 .navbar {
   background-image: none;
@@ -66,22 +52,22 @@
 		background: url("/i/tf-logo-bg.gif") no-repeat;
 		background-size:100% 100%;
     .logo-font{ 
-        font-size:4em;
-        line-height: 0.9;
-        text-shadow: 3px 2px 1px #AAA;
-      }
-	}
-	.legal {
-		h4 {
-			font-size: 1.2em;
-			text-align:center;
-		}
-		font-size: 0.8em;
-		border:solid 1px #ddd;
-		border-radius: 4px;
-		padding:10px 20px;
-		margin-top: 50px;
-	}
+      font-size:8em;
+      line-height: 0.9;
+      text-shadow: 3px 2px 1px #AAA;
+    }
+  }
+  .legal {
+    h4 {
+     font-size: 1.2em;
+     text-align:center;
+   }
+   font-size: 0.8em;
+   border:solid 1px #ddd;
+   border-radius: 4px;
+   padding:10px 20px;
+   margin-top: 50px;
+ }
 }
 .logo-font {
   font-family: 'Arial Black', Gadget, sans-serif;
@@ -91,13 +77,15 @@
 .navbar-brand { 
 
   img {
-      max-height: 64px;
-      margin-top: -7px;
-    }
-    .logo-font {
+    max-height: 64px;
+    margin-top: -7px;
+    float: left;
+  }
+  .logo-font {
     font-size: 0.9em;
     line-height:1.07;
-    }
+    float: left;
+  }
 }
 footer {
 	margin-top: 10px;
@@ -105,82 +93,113 @@ footer {
 }
 /* columns of same height styles */
 .row-same-height {
-    display: table;
-    border-spacing: 15px;
-    width: 100%;
-    .well {
-    	height: 100%;
-    }
+  display: table;
+  border-spacing: 15px;
+  width: 100%;
+  .well {
+   height: 100%;
+ }
 }
 .col-xs-height {
+  display: table-cell;
+  float: none !important;
+}
+
+/*  Cellhone only */
+
+@media (max-width: 768px) {
+  .navbar-brand {
+    .logo-font {
+      font-size: 0.6em;
+  }
+    img {
+      height: 42px;
+      float: left;
+    }
+  }
+  .col-sm-height {
+    display: block;
+    float: none !important;
+  }
+
+  .home .jumbotron .logo-font{
+    font-size: 4em;
+  }
+
+  .navbar-default .container .nav.navbar-nav.navbar-right {
+    &>li.divider {
+      display: none;
+      &.group3 {
+        display: block;
+        position:relative;
+        float:left;
+        margin:  5px 0;
+        line-height: 2;
+        border-color: @accent-color-2;
+      }
+    } 
+    &>li{
+      text-align: center;
+      width:100%;
+      &.group2 {
+        clear:both;
+        &>a {
+          color: @accent-color-2-half;
+        }
+      }
+      >a {
+        font-size: 1.5em;
+        color: @accent-color;
+        br {
+          display:none;
+          &::after {
+            content: "&nbsp;";
+          }
+        }
+      }
+      &.group3, &.group3:not(both) {
+        display: block !important;
+        position:relative;
+        float:left;
+        width: initial;
+        a {
+          color: @accent-color-2;
+          line-height: 0.7;
+        }
+      }
+
+    }
+  }
+}
+
+
+@media (min-width: 992px) {
+  .col-md-height {
     display: table-cell;
     float: none !important;
-}
-
-@media (min-width: 768px) {
-    .col-sm-height {
-        display: table-cell;
-        float: none !important;
-    }
-    .home .jumbotron .logo-font{
-      font-size: 8em;
-    }
-
-.navbar-default .nav.navbar-nav.navbar-right {
-&>li.divider
-{
-  display: initial;
-  &.group3 {
-    display:none;
   }
-} 
-  &>li {
-  text-align: initial;
-  width:initial;
-  >a {
-    font-size: 0.9em;
-    br {
-      display: initial;
-      }
-    }
-    }
-      &>li.group3>a {
-      color: @accent-color-2;
-      width:100%;
-      &:not(both) {
-        display: none;
-      }
-      }
-
-}   
-}
-@media (min-width: 992px) {
-    .col-md-height {
-        display: table-cell;
-        float: none !important;
-    }
 
 }
 @media (min-width: 1200px) {
-    .col-lg-height {
-        display: table-cell;
-        float: none !important;
-    }
+  .col-lg-height {
+    display: table-cell;
+    float: none !important;
+  }
 }
 /* firefox fix */
 .img-responsive {
-    width: 100%;
+  width: 100%;
 }
 
 /* vertical alignment styles */
 .col-top {
-    vertical-align:top;
+  vertical-align:top;
 }
 .col-middle {
-    vertical-align:middle;
+  vertical-align:middle;
 }
 .col-bottom {
-    vertical-align:bottom;
+  vertical-align:bottom;
 }
 /* Sticky footer styles
 -------------------------------------------------- */
