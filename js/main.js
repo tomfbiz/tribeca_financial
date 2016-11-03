@@ -8,6 +8,11 @@ var topnav_toggle = {
 }
 
 function mapInit() {
+  // don't show map on phones
+  if ($(window).width() <= 768) {
+    return
+  }
+  
   var trifiCoords = new google.maps.LatLng(40.716834,-74.005467);
   var map = new google.maps.Map(document.getElementById('map'),
       {
@@ -43,9 +48,5 @@ function mapInit() {
 $(document).ready(function() {
   topnav_toggle.init();
   mapInit();
-  // 	more_list.init();
-  // 	overlay.init();
 });
 
-
-// 	
